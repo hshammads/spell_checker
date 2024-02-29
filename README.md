@@ -2,7 +2,8 @@
 This is a sample project.
 It has two prompts for testing.
 One prompt is a list, and the other is a string.
-The program takes each input, manually, and fixes spelling for each word, outputting the corrected versions.
+The program takes each input, manually, and fixes spelling for each word in each phrase.
+Output is the outputting the corrected strings.
 
 Future steps:
 1. Automate input and take it from a file as a parameter or a string directly from terminal
