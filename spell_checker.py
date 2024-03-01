@@ -4,7 +4,8 @@ import os.path
 from spellchecker import SpellChecker
 
 # define global variables
-EXISTING_FILE = './input.txt'
+INPUT_FILE = './input.txt'
+OUTPUT_FILE = './output.txt'
 prompt_arr = []
 
 # define functions
@@ -52,14 +53,22 @@ while(run_pgm_again):
         print('Debug mode is OFF ...')
 
     # ask user for input or read from file
-    file = input('\nWould you like to use existing file? (Y/N): ')
-    if file.upper() == 'Y' or file.upper() == 'YES':
+    existing_file = input('\nWould you like to use existing file? (Y/N): ')
+    if existing_file.upper() == 'Y' or existing_file.upper() == 'YES':
         if debug:
-            print('Reading from existing file:', EXISTING_FILE)
-        with open(EXISTING_FILE, 'r') as f:
-            print('got here ...')
-            text = f.read()
-            text_list = eval(text)
+            print('Reading from existing file: ', INPUT_FILE)
+        # open and read file
+        file = open(INPUT_FILE, 'r')
+        # import text
+        text = file.readlines()
+        if debug:
+            print("Text imported from file {}: {}".format(INPUT_FILE,text))
+        # parse out the text into array
+        prompt_arr = [line.strip() for line in text]
+        if debug:
+            print("Array generated from input file: ", prompt_arr)
+        # close file
+        file.close()
     else:
         in_prompt = input('\nPlease enter string/phrase for program to process: ')
         prompt_arr = [in_prompt]
@@ -73,6 +82,19 @@ while(run_pgm_again):
     # print output
     for index, phrase in enumerate(prompt_arr):
         print('Corrected phrase #{}: {}'.format(index + 1,phrase))
+
+    # if input data from file, save it
+    if existing_file.upper() == 'Y' or existing_file.upper() == 'YES':
+        if debug:
+            print('\nWriting corrected phrases to file: {} ...'.format(OUTPUT_FILE))
+        # open and write to file
+        file = open(OUTPUT_FILE, 'w')
+        for prompt in prompt_arr:
+            file.writelines(prompt + '\n')
+        if debug:
+            print('Corrected phrases written to file:', OUTPUT_FILE)
+        # close file
+        file.close()
 
     rerun = input('\nWould you like to run through the program again? (Y/N): ')
     if rerun.upper() != 'Y' and rerun.upper() != 'YES':
