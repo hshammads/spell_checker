@@ -1,12 +1,13 @@
 # spell checker
-This is a sample project.
-It has two prompts for testing.
-One prompt is a list, and the other is a string.
-The program takes each input, manually, and fixes spelling for each word in each phrase.
-Output is the outputting the corrected strings.
+This is a spell checker that can fix strings given in terminal and from an input file.
+NOTE: The input file has to be in the same directory as the script.
 
-Future steps:
-1. Automate input and take it from a file as a parameter or a string directly from terminal
-2. Set up debug statements, that also gets set from user input
-3. Set up try and catch blocks
-4. Set up program to update the input file
+The program gives the option to be run in debug mode and whether you would like to use an input file.
+If input file is not selected, then the program will ask for an input phrase.
+The program will review the phrase and output the corrected phrase.
+NOTE: The program does not save corrected phrases in memory. It only displays them in terminal.
+
+If input file is selected, then the program will run through all the phrases, separated in new lines, and fix them.
+The program does save the corrected phrases from input file into an output file, in the same directory.
+
+Enjoy!!
