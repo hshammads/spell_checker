@@ -10,4 +10,6 @@ NOTE: The program does not save corrected phrases in memory. It only displays th
 If input file is selected, then the program will run through all the phrases, separated in new lines, and fix them.
 The program does save the corrected phrases from input file into an output file, in the same directory.
 
+Use the spell_checker_ui version for a UI that can be used to browse a file, which the program spellcheck and save a copy of.
+
 Enjoy!!
